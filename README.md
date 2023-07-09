@@ -105,26 +105,25 @@ spark.catalog.dropTempView("nis_policies")
 spark.catalog.dropTempView("nis_organisations")
 
 ```
-3. Mapping of dependencies to determine the order in which the ingestion should be triggered
+3. Mapping of dependencies to determine the order in which the ingestion should be triggered <br/>
  The driver script would be expecting a path to a csv file containing all the table names with their respective layers (dependency metadata). The driver would then order all the glue ingestion jobs in accordance to the dependencies
 
-4. Triggering of ingestion and collection of operational metadata 
+4. Triggering of ingestion and collection of operational metadata <br/>
 This part of the driver script would trigger the glue ingestion jobs in order. All the jobs belonging to a particular layer would run asynchronously. In addition, all the run metadata for each one of the jobs would be captured. The following indicators would recorded for each run of a particular job: 
-a. Job Name 
-b. Job Arguments 
-c. Job Status *(SUCCESS, FAILURE, SUSPENDED)*
- 
-d. Job Start Time 
-e. Job End Time 
+     - Job Name 
+     - Job Arguments 
+     - Job Status *(SUCCESS, FAILURE, SUSPENDED)* 
+     - Job Start Time 
+     - Job End Time 
 
 ***Note*** : The operational metastore is currently placed in S3 in parquet format with the name : “operational_metadata” and is queryable via Athena. However, the code base has the flexibility to replace S3 based metastore with a RDS metastore by providing the required credentials
 
-5. Generation of reconciliation report
+5. Generation of reconciliation report <br/>
  Finally, once all the ingestions are created, a report is generated in parquet format with the name : “recon_report” and is queryable via Athena. This report can be used for data quality assurance and data validation. It has the following indicators: 
- a. On Premise Table Name 
- b. On Premise Table Counts 
- c. DataLake Table Name 
- d. DataLake Table Counts 
+   - On Premise Table Name 
+   - On Premise Table Counts 
+   - DataLake Table Name 
+   - DataLake Table Counts 
  
  Below is a template used for the driver script responsible for population of the entire datalake .The comments added at each step makes the template self explanatory
 
