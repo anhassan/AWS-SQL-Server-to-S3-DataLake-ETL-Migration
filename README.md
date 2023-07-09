@@ -62,7 +62,7 @@ For each of the table ingestion, a PySpark script has been developed and placed 
 A typical ingestion script would have the following structure: 
    - Reads from the on-premise database via a utility script 
    - Applies a filtration logic on the read table 
-   - Writes the filtered table data to S3 datalake via a utility script which in turn also catalogs the data in Glue database containing metadata of ingested datalake tables 
+   - Writes the filtered table data to S3 datalake via a utility script which in turn also catalogs the data in Glue database containing metadata of ingested datalake tables <br/> 
 Below is a template used for all the ingestion scripts jobs. The comments added at each step makes the template self explanatory
 ```Python
 from utils import *
