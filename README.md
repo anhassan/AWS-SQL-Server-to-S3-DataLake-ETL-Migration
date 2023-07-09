@@ -43,10 +43,10 @@ In order for the solution to work across any environment, we need to ensure the 
   
 	     - Select AWS Glue service, then select create a connection 
 	     - Enter the connection name and select connection type as JDBC 
-	 - Enter JDBC URL in the format : ***jdbc:sqlserver://<host_name>;databaseName=<database_name>;*** along with username and password of a database user 
-	 - Create a new security group with all allowed inbound and outbound traffic 
-	 - Select the VPC ,the private subnet and security group created above 
-	 - Select Create connection
+	     - Enter JDBC URL in the format : ***jdbc:sqlserver://<host_name>;databaseName=<database_name>;*** along with username and password of a database user 
+	     - Create a new security group with all allowed inbound and outbound traffic 
+	     - Select the VPC ,the private subnet and security group created above 
+	     - Select Create connection
 
 Once the glue role and connector are created, the driver script named driver_all_raw_ingestions would take care of the rest. The driver script has been divided into the following five main parts: 
 
