@@ -53,16 +53,16 @@ Once the glue role and connector are created, the driver script named driver_all
 1. Creation of required resources using Infrastructure as Code 
 The following resources are created upon each run of the driver script in case these resources do not exist: 
      - A S3 bucket for the raw layer of datalake with the given name
-  - A Glue database to catalog all the metadata of on-premise database tables
-  - A Glue crawler which crawls all the on-premise database tables and catalogs the metadata in AWS Glue Data Catalog
-  - A Glue database to catalog all the metadata of ingested datalake tables and operational metadata
+     - A Glue database to catalog all the metadata of on-premise database tables
+     - A Glue crawler which crawls all the on-premise database tables and catalogs the metadata in AWS Glue Data Catalog
+     - A Glue database to catalog all the metadata of ingested datalake tables and operational metadata
 
 3. Creation of glue jobs from s3 based scripts 
 For each of the table ingestion, a PySpark script has been developed and placed inside a folder in S3. In order to automate the glue job creation process across different environments these scripts would have to be placed inside a S3 folder. The driver script would expect a path to the folder containing all these the ingestion scripts so that it creates job against each one of the scripts if it does not already exist 
 A typical ingestion script would have the following structure: 
-a. Reads from the on-premise database via a utility script 
-b. Applies a filtration logic on the read table 
-c. Writes the filtered table data to S3 datalake via a utility script which in turn also catalogs the data in Glue database containing metadata of ingested datalake tables 
+   - Reads from the on-premise database via a utility script 
+   - Applies a filtration logic on the read table 
+   - Writes the filtered table data to S3 datalake via a utility script which in turn also catalogs the data in Glue database containing metadata of ingested datalake tables 
 Below is a template used for all the ingestion scripts jobs. The comments added at each step makes the template self explanatory
 ```Python
 from utils import *
