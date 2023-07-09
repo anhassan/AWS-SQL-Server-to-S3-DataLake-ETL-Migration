@@ -210,6 +210,10 @@ The template above is compounded with four custom utility scripts that need to b
 
 The following architecture diagram explains the overall design in detail pictorially
 
+<p align="center">
+  <img src="/assets/sqlserver_s3_etl_migration.jpg" />
+</p>
+
 ## Migration Checklist 
 
 The following steps would be required to plug and play the entire ETL framework developed above on any AWS environment: 
