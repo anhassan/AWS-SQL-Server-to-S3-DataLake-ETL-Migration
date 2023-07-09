@@ -4,13 +4,13 @@ This project focuses on migrating all the tables present in the on premise SQL S
 # Design and Implementation
 In order for the solution to work across any environment, we need to ensure the following: 
 1. An AWS glue service role named ***AWSGlueServiceRoleDefault*** should be created with the following permissions:
-<ol type="A">
- <li> a. AmazonS3FullAccess </li>
- <li> b. AWSGlueServiceNotebookRole </li>
- <li> c. AWSGlueServiceRole </li>
- <li> d. AWSGlueConsoleFullAccess </li>
- <li> e. AmazonRDSFullAccess </li>
- <li> f. An inline JSON policy given below </li>
+<ol type="a">
+ <li> AmazonS3FullAccess </li>
+ <li> AWSGlueServiceNotebookRole </li>
+ <li> AWSGlueServiceRole </li>
+ <li> AWSGlueConsoleFullAccess </li>
+ <li> AmazonRDSFullAccess </li>
+ <li> An inline JSON policy given below </li>
 </ol>
 ```Java
 {
