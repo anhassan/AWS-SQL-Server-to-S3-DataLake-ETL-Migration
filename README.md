@@ -13,6 +13,7 @@ In order for the solution to work across any environment, we need to ensure the 
  <li> AmazonRDSFullAccess </li>
  <li> An inline JSON policy given below </li>
 </ol>
+	
 ```Java
 {
    "Version":"2012-10-17",
