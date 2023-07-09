@@ -3,7 +3,8 @@ This project focuses on migrating all the tables present in the on premise SQL S
 
 # Design and Implementation
 In order for the solution to work across any environment, we need to ensure the following: 
-1. An AWS glue service role named ***AWSGlueServiceRoleDefault*** should be created with the following permissions:
+<ol type="1">
+<li> An AWS glue service role named ***AWSGlueServiceRoleDefault*** should be created with the following permissions: </li>
 <ol type="a">
  <li> AmazonS3FullAccess </li>
  <li> AWSGlueServiceNotebookRole </li>
@@ -37,7 +38,7 @@ In order for the solution to work across any environment, we need to ensure the 
 }
 ```
  
- 2. A glue connector with a static IP to connect to the SQL Server database securely. The prerequisite for creating a glue connector connecting to an on-premise database is to create or configure a VPC which includes the following: 
+<li> A glue connector with a static IP to connect to the SQL Server database securely. The prerequisite for creating a glue connector connecting to an on-premise database is to create or configure a VPC which includes the following: </li>
  
 	  a. A private subnet for hosting the Glue Connector 
 	  b. A public subnet that contains a NAT Gateway with a static IP attached to it which the Glue Connector uses to communicate with the internet 
@@ -49,6 +50,7 @@ In order for the solution to work across any environment, we need to ensure the 
 	  d. Create a new security group with all allowed inbound and outbound traffic 
 	  e. Select the VPC ,the private subnet and security group created above 
 	  f. Select Create connection
+</ol>
 
 Once the glue role and connector are created, the driver script named driver_all_raw_ingestions would take care of the rest. The driver script has been divided into the following five main parts: 
 
