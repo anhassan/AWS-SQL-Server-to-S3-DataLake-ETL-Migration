@@ -42,7 +42,7 @@ In order for the solution to work across any environment, we need to ensure the 
     - Configuration of route tables to enable this connectivity Once the VPC is created or configured, the following steps can be taken to create the required glue connector: 
   
 	     - Select AWS Glue service, then select create a connection 
-	 - Enter the connection name and select connection type as JDBC 
+	     - Enter the connection name and select connection type as JDBC 
 	 - Enter JDBC URL in the format : ***jdbc:sqlserver://<host_name>;databaseName=<database_name>;*** along with username and password of a database user 
 	 - Create a new security group with all allowed inbound and outbound traffic 
 	 - Select the VPC ,the private subnet and security group created above 
