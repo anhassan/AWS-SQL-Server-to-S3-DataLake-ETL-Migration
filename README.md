@@ -9,7 +9,7 @@ In order for the solution to work across any environment, we need to ensure the 
    - AWSGlueServiceRole 
    - AWSGlueConsoleFullAccess 
    - AmazonRDSFullAccess 
-   f. An inline JSON policy given below
+   - An inline JSON policy given below
 ```Java
 {
    "Version":"2012-10-17",
@@ -37,16 +37,16 @@ In order for the solution to work across any environment, we need to ensure the 
  
  2. A glue connector with a static IP to connect to the SQL Server database securely. The prerequisite for creating a glue connector connecting to an on-premise database is to create or configure a VPC which includes the following: 
  
-	  a. A private subnet for hosting the Glue Connector 
-	  b. A public subnet that contains a NAT Gateway with a static IP attached to it which the Glue Connector uses to communicate with the internet 
-	  c. Configuration of route tables to enable this connectivity Once the VPC is created or configured, the following steps can be taken to create the required glue connector: 
+          - A private subnet for hosting the Glue Connector 
+          - A public subnet that contains a NAT Gateway with a static IP attached to it which the Glue Connector uses to communicate with the internet 
+          - Configuration of route tables to enable this connectivity Once the VPC is created or configured, the following steps can be taken to create the required glue connector: 
   
-	  a. Select AWS Glue service, then select create a connection 
-	  b. Enter the connection name and select connection type as JDBC 
-	  c. Enter JDBC URL in the format : ***jdbc:sqlserver://<host_name>;databaseName=<database_name>;*** along with username and password of a database user 
-	  d. Create a new security group with all allowed inbound and outbound traffic 
-	  e. Select the VPC ,the private subnet and security group created above 
-	  f. Select Create connection
+		  - Select AWS Glue service, then select create a connection 
+		  - Enter the connection name and select connection type as JDBC 
+		  - Enter JDBC URL in the format : ***jdbc:sqlserver://<host_name>;databaseName=<database_name>;*** along with username and password of a database user 
+		  - Create a new security group with all allowed inbound and outbound traffic 
+		  - Select the VPC ,the private subnet and security group created above 
+		  - Select Create connection
 
 Once the glue role and connector are created, the driver script named driver_all_raw_ingestions would take care of the rest. The driver script has been divided into the following five main parts: 
 
