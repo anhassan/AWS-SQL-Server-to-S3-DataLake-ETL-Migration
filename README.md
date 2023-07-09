@@ -37,9 +37,9 @@ In order for the solution to work across any environment, we need to ensure the 
  
  2. A glue connector with a static IP to connect to the SQL Server database securely. The prerequisite for creating a glue connector connecting to an on-premise database is to create or configure a VPC which includes the following: 
  
-          - A private subnet for hosting the Glue Connector 
-          - A public subnet that contains a NAT Gateway with a static IP attached to it which the Glue Connector uses to communicate with the internet 
-          - Configuration of route tables to enable this connectivity Once the VPC is created or configured, the following steps can be taken to create the required glue connector: 
+    - A private subnet for hosting the Glue Connector 
+    - A public subnet that contains a NAT Gateway with a static IP attached to it which the Glue Connector uses to communicate with the internet 
+    - Configuration of route tables to enable this connectivity Once the VPC is created or configured, the following steps can be taken to create the required glue connector: 
   
 		  - Select AWS Glue service, then select create a connection 
 		  - Enter the connection name and select connection type as JDBC 
