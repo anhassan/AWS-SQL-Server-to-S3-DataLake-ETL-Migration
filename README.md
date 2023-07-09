@@ -50,14 +50,14 @@ In order for the solution to work across any environment, we need to ensure the 
 
 Once the glue role and connector are created, the driver script named driver_all_raw_ingestions would take care of the rest. The driver script has been divided into the following five main parts: 
 
-1. Creation of required resources using Infrastructure as Code 
+1. Creation of required resources using Infrastructure as Code <br/>
 The following resources are created upon each run of the driver script in case these resources do not exist: 
      - A S3 bucket for the raw layer of datalake with the given name
      - A Glue database to catalog all the metadata of on-premise database tables
      - A Glue crawler which crawls all the on-premise database tables and catalogs the metadata in AWS Glue Data Catalog
      - A Glue database to catalog all the metadata of ingested datalake tables and operational metadata
 
-3. Creation of glue jobs from s3 based scripts 
+2. Creation of glue jobs from s3 based scripts <br/>
 For each of the table ingestion, a PySpark script has been developed and placed inside a folder in S3. In order to automate the glue job creation process across different environments these scripts would have to be placed inside a S3 folder. The driver script would expect a path to the folder containing all these the ingestion scripts so that it creates job against each one of the scripts if it does not already exist 
 A typical ingestion script would have the following structure: 
    - Reads from the on-premise database via a utility script 
