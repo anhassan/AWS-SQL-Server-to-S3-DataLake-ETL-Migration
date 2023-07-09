@@ -52,7 +52,7 @@ Once the glue role and connector are created, the driver script named driver_all
 
 1. Creation of required resources using Infrastructure as Code 
 The following resources are created upon each run of the driver script in case these resources do not exist: 
-  - A S3 bucket for the raw layer of datalake with the given name
+     - A S3 bucket for the raw layer of datalake with the given name
   - A Glue database to catalog all the metadata of on-premise database tables
   - A Glue crawler which crawls all the on-premise database tables and catalogs the metadata in AWS Glue Data Catalog
   - A Glue database to catalog all the metadata of ingested datalake tables and operational metadata
